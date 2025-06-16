@@ -1,2 +1,2 @@
 # Emily's Page
-PAll things Emily
+All things Emily
