@@ -1,4 +1,5 @@
-import * as THREE from 'three';
+// import * as THREE from 'three';
+import * as THREE from './node_modules/three/build/three.module.js';
 import { initScene } from './scene.js';
 import { setupControls } from './controls.js';
 import { setupInteractions } from './interactions.js';
