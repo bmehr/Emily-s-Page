@@ -4,46 +4,28 @@ import * as THREE from 'three';
 export function setupControls(camera, domElement) {
   const controls = new PointerLockControls(camera, domElement);
 
-  // Handle click to activate
   document.body.addEventListener('click', () => {
-    document.body.requestFullscreen()
-      .then(() => controls.lock())
-      .catch(() => controls.lock());
+    controls.lock();
   });
 
-  const keys = {
-    forward: false,
-    backward: false,
-    left: false,
-    right: false,
-  };
-
+  const keys = { forward: false, backward: false, left: false, right: false };
   const velocity = new THREE.Vector3();
   const direction = new THREE.Vector3();
-  const moveSpeed = 20;
+  const moveSpeed = 10;
 
-  function onKeyDown(event) {
-    switch (event.code) {
-      case 'KeyW': keys.forward = true; break;
-      case 'KeyS': keys.backward = true; break;
-      case 'KeyA': keys.left = true; break;
-      case 'KeyD': keys.right = true; break;
-    }
-  }
+  document.addEventListener('keydown', e => {
+    if (e.code === 'KeyW') keys.forward = true;
+    if (e.code === 'KeyS') keys.backward = true;
+    if (e.code === 'KeyA') keys.left = true;
+    if (e.code === 'KeyD') keys.right = true;
+  });
+  document.addEventListener('keyup', e => {
+    if (e.code === 'KeyW') keys.forward = false;
+    if (e.code === 'KeyS') keys.backward = false;
+    if (e.code === 'KeyA') keys.left = false;
+    if (e.code === 'KeyD') keys.right = false;
+  });
 
-  function onKeyUp(event) {
-    switch (event.code) {
-      case 'KeyW': keys.forward = false; break;
-      case 'KeyS': keys.backward = false; break;
-      case 'KeyA': keys.left = false; break;
-      case 'KeyD': keys.right = false; break;
-    }
-  }
-
-  document.addEventListener('keydown', onKeyDown);
-  document.addEventListener('keyup', onKeyUp);
-
-  // Custom update method to call every frame
   controls.update = function(delta) {
     velocity.x -= velocity.x * 10.0 * delta;
     velocity.z -= velocity.z * 10.0 * delta;
