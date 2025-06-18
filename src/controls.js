@@ -1,4 +1,4 @@
-import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls.js';
+import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
 import * as THREE from 'three';
 
 export function setupControls(camera, domElement) {
