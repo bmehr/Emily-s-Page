@@ -1,3 +1,8 @@
+ <script type="module">
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.module.js'; 
+  // ... other imports from CDN
+</script>
+
 import * as THREE from 'three';
 
 const scene = new THREE.Scene();
