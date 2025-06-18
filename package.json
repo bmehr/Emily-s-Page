@@ -1,12 +1,17 @@
 {
+  "name": "Emily-s-Page",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "three": "^0.156.0"
   },
   "devDependencies": {
-    "vite": "^6.3.5"
+    "vite": "^5.0.0"
   }
 }
+
